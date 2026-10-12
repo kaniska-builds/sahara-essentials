@@ -1,0 +1,227 @@
+
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<meta name="theme-color" content="#123c32">
+<title>Sahara — Donate. Share. Support.</title>
+<style>
+:root{--green:#123c32;--lime:#d8f078;--cream:#f8f7f0;--muted:#66746d;--white:#fff}
+*{box-sizing:border-box}
+html{scroll-behavior:smooth}
+body{margin:0;font-family:Arial,Helvetica,sans-serif;background:var(--cream);color:var(--green);line-height:1.6}
+button,input,select,textarea{font:inherit}
+a{color:inherit;text-decoration:none}
+button,.btn{cursor:pointer;border:0;border-radius:12px;padding:12px 18px;font-weight:700;display:inline-block}
+button:focus-visible,a:focus-visible{outline:3px solid #799e36;outline-offset:3px}
+header{background:var(--green);color:white;padding:16px 5%;display:flex;align-items:center;justify-content:space-between;gap:15px;flex-wrap:wrap}
+.brand{font-size:27px;font-weight:900;letter-spacing:-1px}
+.brand span{color:var(--lime)}
+nav{display:flex;gap:18px;flex-wrap:wrap;font-size:14px}
+nav a:hover{color:var(--lime)}
+.lang{background:#fff;color:var(--green);padding:8px;border-radius:9px}
+.hero{padding:65px 6% 55px;background:var(--green);color:white;display:grid;grid-template-columns:1.2fr .8fr;gap:35px;align-items:center}
+.eyebrow{color:var(--lime);font-weight:800;text-transform:uppercase;letter-spacing:2px;font-size:12px}
+h1{font-size:clamp(42px,7vw,76px);line-height:1.02;letter-spacing:-3px;margin:15px 0 22px}
+.hero p{color:#d9e6de;max-width:530px}
+.primary{background:var(--lime);color:var(--green)}
+.secondary{background:transparent;color:white;border:1px solid #b3c9bd}
+.hero-art{min-height:270px;background:#244f42;border-radius:28px;padding:25px;display:flex;align-items:center;justify-content:center;position:relative;overflow:hidden}
+.sun{width:175px;height:175px;border-radius:50%;background:var(--lime);display:grid;place-items:center;font-size:78px;box-shadow:0 0 0 22px #ffffff0b}
+.art-note{position:absolute;bottom:17px;left:17px;background:white;color:var(--green);padding:10px 15px;border-radius:12px;font-size:13px;font-weight:700}
+section{padding:58px 6%}
+.section-head{max-width:650px;margin-bottom:28px}
+h2{font-size:clamp(28px,4vw,42px);line-height:1.15;letter-spacing:-1.5px;margin:8px 0 12px}
+.muted{color:var(--muted)}
+.grid{display:grid;grid-template-columns:repeat(3,minmax(0,1fr));gap:17px}
+.card{background:white;border:1px solid #e6e9df;border-radius:20px;padding:23px}
+.symbol{font-size:32px}
+.card h3{margin:12px 0 6px}
+.card p{color:var(--muted);font-size:14px}
+.card .btn{margin-top:8px}
+.green-btn{background:var(--green);color:white}
+.outline-btn{background:white;border:1px solid #d8dfd5;color:var(--green)}
+.notice{background:#f0f3e3;border-radius:14px;padding:15px;font-size:13px;color:#4e5f4f;margin-top:20px}
+.donate{background:#e8edda}
+.amounts{display:flex;flex-wrap:wrap;gap:9px;margin:14px 0}
+.amount{background:white;border:1px solid #d5ddca;color:var(--green)}
+.amount.active{background:var(--green);color:white}
+input,select,textarea{width:100%;padding:12px;border:1px solid #d8dfd5;border-radius:10px;background:white;color:#183b30;margin:5px 0 13px}
+label{font-weight:700;font-size:13px}
+.two{display:grid;grid-template-columns:1fr 1fr;gap:12px}
+.impact{background:#fff}
+.impact-card{padding:0;overflow:hidden}
+.photo-placeholder{height:155px;background:#e6edd7;display:grid;place-items:center;font-size:52px}
+.impact-copy{padding:19px}
+.tag{display:inline-block;background:#eef3df;padding:5px 9px;border-radius:20px;font-size:11px;font-weight:800}
+.form-panel{background:white;padding:25px;border-radius:20px;border:1px solid #e6e9df;max-width:760px}
+footer{background:#0c2c25;color:#d8e5dc;padding:35px 6%;display:flex;gap:20px;justify-content:space-between;flex-wrap:wrap}
+footer p{font-size:13px;color:#b9cbc0}
+.small{font-size:12px;color:var(--muted)}
+#message{margin-top:12px;font-weight:700}
+@media(max-width:720px){
+ .hero{grid-template-columns:1fr;padding-top:45px}
+ .hero-art{min-height:210px}
+ .grid{grid-template-columns:1fr}
+ .two{grid-template-columns:1fr}
+ nav{gap:12px}
+ section{padding:43px 5%}
+ h1{letter-spacing:-2px}
+}
+</style>
+</head>
+<body>
+<header>
+  <a class="brand" href="#">sa<span>ha</span>ra.</a>
+  <nav>
+    <a href="#help" data-en="Get help" data-hi="मदद पाएं" data-or="ସହାୟତା ପାଆନ୍ତୁ">Get help</a>
+    <a href="#donate" data-en="Donate" data-hi="दान करें" data-or="ଦାନ କରନ୍ତୁ">Donate</a>
+    <a href="#impact" data-en="Our impact" data-hi="हमारा योगदान" data-or="ଆମର ଅବଦାନ">Our impact</a>
+  </nav>
+  <select class="lang" id="language" aria-label="Choose language">
+    <option value="en">English</option>
+    <option value="hi">हिन्दी</option>
+    <option value="or">ଓଡ଼ିଆ</option>
+  </select>
+</header>
+
+<main>
+<div class="hero">
+  <div>
+    <div class="eyebrow" data-en="Small acts. Real change." data-hi="छोटी मदद, बड़ा बदलाव।" data-or="ଛୋଟ ସାହାଯ୍ୟ, ବଡ଼ ପରିବର୍ତ୍ତନ।">Small acts. Real change.</div>
+    <h1 data-en="A little help can change a life." data-hi="थोड़ी-सी मदद ज़िंदगी बदल सकती है।" data-or="ଟିକିଏ ସାହାଯ୍ୟ ଜୀବନ ବଦଳାଇପାରେ।">A little help can change a life.</h1>
+    <p data-en="Share essentials, support families, and help build a community where nobody feels forgotten." data-hi="ज़रूरी सामान साझा करें, परिवारों की मदद करें और ऐसा समुदाय बनाएं जहां कोई खुद को अकेला न समझे।" data-or="ଆବଶ୍ୟକ ସାମଗ୍ରୀ ବାଣ୍ଟନ୍ତୁ, ପରିବାରକୁ ସାହାଯ୍ୟ କରନ୍ତୁ ଏବଂ ଏକ ସହଯୋଗୀ ସମାଜ ଗଢ଼ନ୍ତୁ।">Share essentials, support families, and help build a community where nobody feels forgotten.</p>
+    <br>
+    <a class="btn primary" href="#donate" data-en="Give what you can ↗" data-hi="अपनी क्षमता के अनुसार दें ↗" data-or="ଆପଣଙ୍କ ସାମର୍ଥ୍ୟ ଅନୁସାରେ ଦିଅନ୍ତୁ ↗">Give what you can ↗</a>
+    <a class="btn secondary" href="#help" data-en="I need help" data-hi="मुझे मदद चाहिए" data-or="ମୋତେ ସାହାଯ୍ୟ ଦରକାର">I need help</a>
+  </div>
+  <div class="hero-art" aria-label="Helping hands illustration">
+    <div class="sun">♡</div>
+    <div class="art-note">DONATE. SHARE. SUPPORT.</div>
+  </div>
+</div>
+
+<section id="help">
+  <div class="section-head">
+    <div class="eyebrow">HOW SAHARA WORKS</div>
+    <h2 data-en="Help in the way that feels right." data-hi="जिस तरह चाहें, मदद करें।" data-or="ଆପଣଙ୍କ ଇଚ୍ଛା ଅନୁସାରେ ସାହାଯ୍ୟ କରନ୍ତୁ।">Help in the way that feels right.</h2>
+    <p class="muted" data-en="Useful things, thoughtful giving, and community support." data-hi="ज़रूरी सामान, सोच-समझकर दान और सामुदायिक सहयोग।" data-or="ଆବଶ୍ୟକ ସାମଗ୍ରୀ, ଭାବିଚିନ୍ତି ଦାନ ଏବଂ ସାମୁଦାୟିକ ସହଯୋଗ।">Useful things, thoughtful giving, and community support.</p>
+  </div>
+  <div class="grid">
+    <article class="card"><div class="symbol">🥫</div><h3>Food & essentials</h3><p>Groceries, hygiene supplies and everyday household essentials.</p></article>
+    <article class="card"><div class="symbol">👕</div><h3>Clothes & shoes</h3><p>Clean, usable clothing, footwear, blankets and accessories.</p></article>
+    <article class="card"><div class="symbol">📚</div><h3>Education supplies</h3><p>School bags, notebooks, stationery and learning essentials.</p></article>
+  </div>
+</section>
+
+<section class="donate" id="donate">
+  <div class="section-head">
+    <div class="eyebrow">MAKE A DIFFERENCE</div>
+    <h2 data-en="Every contribution matters." data-hi="हर योगदान मायने रखता है।" data-or="ପ୍ରତ୍ୟେକ ଅବଦାନ ମୂଲ୍ୟବାନ।">Every contribution matters.</h2>
+    <p class="muted">Choose an amount for the donation demo. Real payments are not enabled yet.</p>
+  </div>
+  <div class="form-panel">
+    <label for="amount">Donation amount (₹)</label>
+    <div class="amounts">
+      <button class="amount" data-amount="1" type="button">₹1</button>
+      <button class="amount" data-amount="51" type="button">₹51</button>
+      <button class="amount" data-amount="101" type="button">₹101</button>
+      <button class="amount" data-amount="501" type="button">₹501</button>
+    </div>
+    <input id="amount" type="number" min="1" step="1" placeholder="Enter any amount from ₹1">
+    <div class="grid">
+      <div class="card">
+        <div class="symbol">▦</div><h3>Pay through QR</h3>
+        <p>Scan the official Sahara donation QR code when payment setup is approved.</p>
+        <button class="outline-btn" type="button" onclick="demoNotice()">QR payment — coming soon</button>
+      </div>
+      <div class="card">
+        <div class="symbol">₹</div><h3>Pay through UPI ID</h3>
+        <p>The verified donation UPI ID will be shown here after setup.</p>
+        <button class="outline-btn" type="button" onclick="demoNotice()">UPI payment — coming soon</button>
+      </div>
+      <div class="card">
+        <div class="symbol">🎁</div><h3>Donate items</h3>
+        <p>Offer useful items that are clean, safe and in usable condition.</p>
+        <a class="btn green-btn" href="#item-form">Offer items</a>
+      </div>
+    </div>
+    <div class="notice">Demo only: no payment is processed or recorded. Before accepting public donations, confirm the appropriate legal, tax, banking and payment-provider requirements.</div>
+    <p id="message" role="status"></p>
+  </div>
+</section>
+
+<section id="item-form">
+  <div class="section-head"><div class="eyebrow">GIVE ITEMS</div><h2>Offer something useful.</h2><p class="muted">This preview form does not upload or save information yet.</p></div>
+  <form class="form-panel" onsubmit="demoForm(event,'Item offer')">
+    <label for="item">What would you like to donate?</label>
+    <select id="item" required><option value="">Choose a category</option><option>Food & groceries</option><option>Clothes</option><option>Shoes & accessories</option><option>School supplies</option><option>Blankets</option><option>Household essentials</option><option>Hygiene supplies</option><option>Other</option></select>
+    <div class="two"><div><label for="qty">Quantity</label><input id="qty" type="number" min="1" required placeholder="e.g. 5"></div><div><label for="condition">Item condition</label><select id="condition" required><option value="">Choose</option><option>New</option><option>Clean and usable</option></select></div></div>
+    <label for="details">Description</label><textarea id="details" rows="3" required placeholder="Describe the items (demo only)"></textarea>
+    <button class="green-btn" type="submit">Preview item offer</button>
+    <p class="small">Please do not enter phone numbers or exact home addresses in this demo.</p>
+  </form>
+</section>
+
+<section id="request">
+  <div class="section-head"><div class="eyebrow">REQUEST SUPPORT</div><h2>Asking for help is okay.</h2><p class="muted">A future secure form will help people request essentials privately.</p></div>
+  <form class="form-panel" onsubmit="demoForm(event,'Help request')">
+    <label for="need">What do you need?</label>
+    <select id="need" required><option value="">Choose a category</option><option>Food & groceries</option><option>Clothes & shoes</option><option>School supplies</option><option>Blankets</option><option>Household essentials</option><option>Hygiene supplies</option><option>Other</option></select>
+    <label for="reason">Tell us briefly what would help</label>
+    <textarea id="reason" rows="3" required placeholder="Please don't include private information in this demo"></textarea>
+    <label for="area">General area (optional)</label>
+    <input id="area" placeholder="Town or district only">
+    <button class="green-btn" type="submit">Preview help request</button>
+    <p class="small">This preview does not send your request to anyone.</p>
+  </form>
+</section>
+
+<section class="impact" id="impact">
+  <div class="section-head"><div class="eyebrow">OUR IMPACT</div><h2>Every act of kindness has a story.</h2><p class="muted">Approved updates about help delivered by the Sahara community will appear here.</p></div>
+  <div class="grid">
+    <article class="card impact-card"><div class="photo-placeholder">🧺</div><div class="impact-copy"><span class="tag">SAMPLE CARD</span><h3>Essential grocery support</h3><p>A future story about groceries delivered to a family, shared only with appropriate permission.</p></div></article>
+    <article class="card impact-card"><div class="photo-placeholder">📚</div><div class="impact-copy"><span class="tag">SAMPLE CARD</span><h3>Ready for school</h3><p>A future story about school supplies shared with children in the community.</p></div></article>
+    <article class="card impact-card"><div class="photo-placeholder">🧣</div><div class="impact-copy"><span class="tag">SAMPLE CARD</span><h3>Warmth and care</h3><p>A future story about blankets and essentials distributed to people who need them.</p></div></article>
+  </div>
+  <div class="notice">These are sample cards, not claims of completed donations. Real impact posts will need an authorized publishing system, photo consent and privacy checks.</div>
+</section>
+
+<section id="transparency">
+  <div class="section-head"><div class="eyebrow">TRUST & TRANSPARENCY</div><h2>Kindness deserves honesty.</h2><p class="muted">Sahara will aim to publish verified summaries of donations received, fees, refunds, purchases, distribution and remaining balance. Private donor and recipient details will not be public.</p></div>
+</section>
+</main>
+
+<footer>
+  <div><div class="brand">sa<span>ha</span>ra.</div><p>Donate. Share. Support.</p></div>
+  <div><strong>Built around dignity.</strong><p>Helping essentials reach the people who need them.</p><p>© Sahara — community support project</p></div>
+</footer>
+
+<script>
+function demoNotice(){
+ document.getElementById('message').textContent =
+ 'Thank you for wanting to help! Real QR and UPI payments are not active yet.';
+}
+function demoForm(event,name){
+ event.preventDefault();
+ alert(name+' preview only. Nothing was sent or saved. The secure submission system will be added later.');
+}
+document.querySelectorAll('[data-amount]').forEach(function(button){
+ button.addEventListener('click',function(){
+  document.getElementById('amount').value=button.dataset.amount;
+  document.querySelectorAll('[data-amount]').forEach(function(b){b.classList.remove('active')});
+  button.classList.add('active');
+ });
+});
+document.getElementById('language').addEventListener('change',function(){
+ const lang=this.value;
+ document.querySelectorAll('[data-en]').forEach(function(el){
+  el.textContent=el.getAttribute('data-'+lang)||el.getAttribute('data-en');
+ });
+ document.documentElement.lang=lang==='or'?'or':lang;
+});
+</script>
+</body>
+  </html>
+  
